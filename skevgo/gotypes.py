@@ -8,17 +8,17 @@ class Player(enum.Enum):
     white = 2
 
     # create method for switching between players after each turn
-    @property
+    @property  # "@property" is a decorator syntax for property().
     def switch_player(self):
         return Player.black if self == Player.white else Player.white
 
 
-# create game board position class
-class Position(namedtuple('Position', 'row col')):
+# create game board point class
+class Point(namedtuple('point', 'row col')):
     def neighbors(self):
         return[
-            Position(self.row - 1, self.col),
-            Position(self.row + 1, self.col),
-            Position(self.row, self.col - 1),
-            Position(self.row, self.col + 1),
+            Point(self.row - 1, self.col),
+            Point(self.row + 1, self.col),
+            Point(self.row, self.col - 1),
+            Point(self.row, self.col + 1),
         ]
