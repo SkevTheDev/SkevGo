@@ -1,5 +1,5 @@
 import copy
-from skevgo.gotypes import Player
+from goboard.gotypes import Player
 
 
 # Define Move Class
@@ -184,7 +184,7 @@ class GameState:
             return True
         return(
             self.board.get(move.point) is None and
-            not self.is_move_self_caputre(self.next_player, move) and
+            not self.is_move_self_capture(self.next_player, move) and
             not self.does_move_violate_ko(self.next_player, move)
         )
 

@@ -1,4 +1,4 @@
-from skevgo.gotypes import Point
+from goboard.gotypes import Point
 
 
 def is_point_an_eye(board, point, color):

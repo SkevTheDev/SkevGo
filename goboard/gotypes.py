@@ -9,7 +9,7 @@ class Player(enum.Enum):
 
     # create method for switching between players after each turn
     @property  # "@property" is a decorator syntax for property().
-    def switch_player(self):
+    def other(self):
         return Player.black if self == Player.white else Player.white
 
 
