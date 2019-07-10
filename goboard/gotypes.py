@@ -14,9 +14,9 @@ class Player(enum.Enum):
 
 
 # create game board point class
-class Point(namedtuple('point', 'row col')):
+class Point(namedtuple('Point', 'row col')):
     def neighbors(self):
-        return[
+        return [
             Point(self.row - 1, self.col),
             Point(self.row + 1, self.col),
             Point(self.row, self.col - 1),
