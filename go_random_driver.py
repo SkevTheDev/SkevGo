@@ -1,22 +1,23 @@
-from agent import naive_ai
-from goboard import goboard_slow
-from goboard import gotypes
-from goboard import utils
+from agent import naive
+from dlgo import goboard
+from dlgo import gotypes
+from dlgo import utils
 import time
+import subprocess as sp
 
 
 def main():
     board_size = 9
-    game = goboard_slow.GameState.new_game(board_size)
+    game = goboard.GameState.new_game(board_size)
     bots = {
-        gotypes.Player.black: naive_ai.RandomBot(),
-        gotypes.Player.white: naive_ai.RandomBot(),
+        gotypes.Player.black: naive.RandomBot(),
+        gotypes.Player.white: naive.RandomBot(),
     }
 
     while not game.is_over():
         time.sleep(0.3)
 
-        print(chr(27) + "[2J")
+        tmp = sp.call('clear', shell=True) # method for clearing the command line prior to displaying board states
         utils.print_board(game.board)
         bot_move = bots[game.next_player].select_move(game)
         utils.print_move(game.next_player, bot_move)
